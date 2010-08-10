@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-08-09 16:08:47 : 1281371807*/
+/* App schema generated on: 2010-08-10 04:08:35 : 1281414215*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -342,6 +342,14 @@ class AppSchema extends CakeSchema {
 		'data' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 200),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
+	);
+	var $unread_messages = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'user_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'key' => 'index'),
+		'message_id' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'user_id' => array('column' => array('user_id', 'message_id'), 'unique' => 1)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
 	);
 	var $upload_versions = array(
