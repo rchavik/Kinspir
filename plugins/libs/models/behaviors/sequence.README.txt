@@ -1,0 +1,99 @@
+http://www.neilcrookes.com/2009/02/09/cakephp-sequence-behavior/
+http://github.com/neilcrookes/sequence
+
+CakePHP Sequence Behavior
+A CakePHP behavior for maintaining a contiguous sequence of order values. Records can be grouped by zero, one or multiple fields and the contiguous sequence is maintained for each group when adding, editing or deleting records.
+UPDATE 2010-02-01: I’ve refactored the behavior and the test cases to make it a bit more robust, and moved it to a CakePHP plugin in it’s own github repository. Please let me know if you have any problems either in the comments or via github. I’ve also updated the attachment instructions below for the fact that it’s now in a plugin. I’ve not updated the demo yet though.
+For the impatient among you, here’s a demo (drag’n'drop the table rows, then click refresh to see the order field updated) and the code.
+Controlling the order of things on a web site is a very frequent requirement.
+It might apply to navigation items, lists of frequently asked questions, blog post categories, blocks of content on a page, images in a gallery etc etc.
+You also often need to maintain separate lists in the same database table, identified by a group field, e.g. navigation items are typically grouped by a parent field.
+The traditional way of controlling order is to have an order field in your database table, and drag and drop functionality in your index views which, when you drop a row, sends a serialized list of record IDs and their orders via Ajax to a specified controller action. Your application then unserializes the data and iterates through it, updating the order of each record in turn.
+This approach is rubbish, for 2 reasons:
+A separate database update for every single record.
+If you move a record from one group to another, you need special logic to make sure the moved record appears at the bottom of the new group, and the orders in the old group have gaps, until you reorder it again!
+This is inefficient and messy, so I wrote the SequenceBehavior.
+The SequenceBehavior maintains a contiguous sequence of order values for all records in a database table whether adding, editing (including moving a record to a new group) or deleting them, and they can be grouped by zero, one or multiple fields. It works out which rows need updating then does them all in a single db call.
+Here’s some pseudo code:
+Save:
+If adding new record:
+If order not specified:
+Insert at end of list i.e. highest order + 1
+If order specified:
+Inserts at specified order
+Increments order of all other records whose order >= order of inserted record
+If editing existing record:
+If order not specified and group not specified, or same:
+No Action
+If group specified and different:
+Decrement order of all records whose order > old order in the old group, and change order to highest order in new group + 1
+If order specified and group not specified or same:
+If new order < old order:
+Increments order of all other records whose order >= new order and order < old order
+If new order > old order:
+Decrements order of all other records whose order > old order and <= new order
+If new order == old order:
+No action
+Delete:
+Decrement order of all records whose order > order of deleted record
+To add it to your application, just grab the behavior from my github account and save it in your app/models/behaviors/ directory, then attach it to your models as follows:
+For a model whose records are not grouped:
+<?php
+class Item extends AppModel {
+    var $name = 'Item';
+    var $actsAs = array('Sequence.Sequence');
+}
+?>
+For a model whose records are grouped by a single field:
+<?php
+class GroupedItem extends AppModel {
+    var $name = 'GroupedItem';
+    var $actsAs = array('Sequence.Sequence' => array('group_fields' => 'group_field'));
+}
+?>
+For a model whose records are grouped by multiple fields:
+<?php
+class MultiGroupedItem extends AppModel {
+    var $name = 'MultiGroupedItem';
+    var $actsAs = array('Sequence.Sequence' => array('group_fields' => array('group_field_1', 'group_field_2')));
+}
+?>
+There are 2 other configuration options not seen in the above examples. Firstly, the default order field is ‘order’, but you can override this by passing in an ‘order_field’ option in the config array. The second is a ’start_at’ option which determines the order number your sequence starts at, typically 0 (default), or 1.
+The SequenceBehavior also modifies any model’s order property that it is attached to, which automaically gets used as the default order in CakePHP’s Model::find() calls.
+I’ve put a demo of the behavior on the labs section of my site. The 3 models listed above are availalable to play with. It’s just a quick baked demo, with some small additions for filtering the results into groups. I’ve also added some javascript magic to do the drag and drop re-ordering and Ajax save with a bit of help from jQuery and the Table Drag n Drop jQuery plugin from Isocra. Drag the rows then to check it’s working you can refresh the page and the row you dragged should be where you left it and the orders of all the records should update to maintain the sequence.
+My jQuery is extreme beginner level, but here’s the code I added to my app/layouts/default.ctp to hook the parts together:
+<script type="text/javascript">
+$(document).ready(function() {
+  $("div.index table").tableDnD({
+    url: "<?php echo Router::url(array('action' => 'save_order')); ?>",
+    originalOrder: null,
+    onDragClass: "myDragClass",
+    onDragStart: function(table, row) {
+      originalOrder = jQuery.inArray(row, $("tr", table));
+    },
+    onDrop: function(table, row) {
+      var newOrder = jQuery.inArray(row, $("tr", table)) - 1;
+      if (newOrder != originalOrder) {
+        $.post(this.url+'/'+row.id, { 'data[<?php echo $model; ?>][order]': newOrder });
+      }
+    },
+  });
+});
+</script>
+Basically it add the drag’n'drop shizzle to all tables inside a div class index, and when you start dragging a row it notes the initial order/offset, then when you drop, if different, it posts the new order/offset to a controller/action in my app which saves the order, the code for that is not very pretty, but I’ll include it here for completion:
+<?php
+class AppController extends Controller {
+  var $components = array('RequestHandler');
+  var $helpers = array('Javascript');
+  function save_order($id = null) {
+    Configure::write('debug', 0);
+    if (!$id || !is_numeric($id) || !isset($this->data[$this->modelClass]['order'])
+    || empty($this->data[$this->modelClass]['order'])
+    || !is_numeric($this->data[$this->modelClass]['order'])) {
+      exit;
+    }
+    die(json_encode($this->{$this->modelClass}->save($this->data, true, array('order'))));
+  }
+?>
+That’s it, it’s MIT licensed, so enjoy.
+Share and Enjoy:

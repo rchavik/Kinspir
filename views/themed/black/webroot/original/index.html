@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Cleanity</title>
+	<link href="reset.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="js/jquery.wysiwyg.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" media="screen" rel="stylesheet" href="js/colorbox.css" />
+	<link type="text/css" media="screen" rel="stylesheet" href="js/colorbox-custom.css" />
+
+	<style type="text/css">
+	div.wysiwyg ul.panel li {padding:0px !important;} /**textarea visual editor padding override**/
+	</style>
+	<!--[if IE 6]><link rel="stylesheet" href="ie.css" type="text/css" /><![endif]-->
+	<!--[if IE]><link type="text/css" media="screen" rel="stylesheet" href="js/colorbox-custom-ie.css" title="Cleanity" /><![endif]-->
+
+	<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.js"></script>
+	<script type="text/javascript" src="js/jquery.corners.min.js"></script>
+	<script type="text/javascript" src="js/bg.pos.js"></script>
+	<script type="text/javascript" src="js/jquery.wysiwyg.js"></script>
+
+	<script src="js/tabs.pack.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/cleanity.js"></script>
+
+</head>
+
+<body>
+	<div id="container">
+		<div class="hidden"><!-- the modal box container - this div is hidden until it is called from a modal box trigger. see cleanity.js for details -->
+			<div id="sample-modal"><h2 style="font-size:160%; font-weight:bold; margin:10px 0;">Modal Box Content</h2><p>Place your desired modal box content here</p></div>
+		</div><!-- end of hidden -->
+		<div id="header">
+			<div id="top">
+				<h1><a href="#">Cleanity</a></h1>
+				<p id="userbox">Hello <strong>John Doe</strong> &nbsp;| &nbsp;<a href="#">Settings</a> &nbsp;| &nbsp;<a href="#">Logout</a> <br />
+					<small>Last Login: 12 May 2009</small></p>
+					
+				</div>
+				<ul id="menu">
+					<li class="selected"><a href="#">Dashboard</a></li>
+					<li><a class="top-level" href="#">Users <span>&nbsp;</span></a>
+						<ul>
+							<li><a href="#">Add User</a></li>
+							<li><a href="#">Edit Users</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Pages</a></li>
+					<li><a href="#">Modules</a></li>
+					<li><a class="top-level" href="#">Settings <span>&nbsp;</span></a>
+						<ul>
+							<li><a href="#">Site Settings</a></li>
+							<li><a href="#">File Paths</a></li>
+							<li><a href="#">User Profiles</a></li>
+						</ul></li>
+					</ul>
+					<form action="" method="get" name="form1" id="form1">
+						<fieldset>
+							<legend>Search</legend>
+							<label id="searchbox">
+								<input type="text" name="s" id="s" />
+							</label>
+							<input class="hidden" type="submit" name="Submit" value="Search" />
+						</fieldset>
+					</form>
+					
+				</div><!-- end of #header -->
+
+				<div id="content">
+					<div id="content-top">
+						<h2>Dashboard</h2>
+						<a href="#" id="topLink">Change Order</a> 
+						
+					</div><!-- end of div#content-top -->
+					<div id="left-col">
+						<div class="box">
+							<h4 class="yellow">Side Menu</h4>
+							<div class="box-container"><!-- use no-padding wherever you need element padding gone -->
+								<ul class="list-links">
+									<li><a href="#">Manage Filters</a></li>
+									<li><a href="#">Setup a New Site</a>
+										<ul>
+											<li><a href="#">Configure Paths</a></li>
+											<li><a href="#">Define Database Name</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Manage Site Accounts</a></li>
+								</ul>
+							</div><!--end of div.box-container -->
+						</div><!-- end of div.box -->
+
+						<div class="box">
+							<h4 class="light-blue">System Messages</h4>
+							<div class="box-container">
+								<div id="sys-messages-container">
+									<h5>Latest Messages <span>(Opens Modal)</span></h5>
+									<ul>
+										<li class="even-messages"><a href="#">Where is Everyone? New Stuff i...</a>
+											<a href="#" class="sysmessage-delete"><img src="images/icon-delete-message.gif" alt=" " /></a></li>
+											<li class="odd-messages"><a href="#">Version 2 is Online. You can upd...</a>
+												<a href="#" class="sysmessage-delete"><img src="images/icon-delete-message.gif" alt=" " /></a></li>                      
+											</ul>
+										</div>
+
+										<div id="quick-send-message-container">
+											<h5>Quick Send</h5>
+
+											<form id="form2" name="send-message-form" method="get" action="">
+												<fieldset>
+													<legend>Quick Send Message</legend>
+													<p><label>Message Title:</label>
+														<input name="message-title" id="message-title" type="text" /></p>
+														<p><label>Content:</label>
+															<textarea name="content" cols="10" rows="5"></textarea></p>
+															<div class="inner-nav">
+																<div class="align-left"><input name="send-everyone" type="checkbox" value="" />To Everyone</div>
+																<div class="align-right"><a href="#" onclick="javascript:document.forms['send-message-form'].submit();"><span>send</span></a></div>
+																
+															</div>  	
+															<input class="hidden" name="button" type="button" value="Send Message" />
+														</fieldset>
+													</form>
+												</div>
+											</div><!--end of div.box-container -->
+										</div><!--end of div.box -->
+
+
+										<div class="box" id="to-do">
+											<ul class="tab-menu">
+												<li><a href="#to-dos">To Do</a></li>
+												<li><a href="#completed">Completed</a></li>
+											</ul>
+											<div class="box-container" id="to-dos">
+												<div id="to-do-list">
+													<ul>
+														<li class="even"><input name="check" type="checkbox" value="" />
+															<a href="#">To Do Will Open in Modal Box</a><br />
+															<small><strong>Deadline:</strong>Today</small>
+														</li>
+														<li class="odd"><input name="check" type="checkbox" value="" />
+															<a href="#">To Do Will Open in Modal Box</a><br />
+															<small><strong>Deadline:</strong>Today</small>
+														</li>
+
+														<li class="even"><input name="check" type="checkbox" value="" />
+															<a href="#">To Do Will Open in Modal Box</a><br />
+															<small><strong>Deadline:</strong>Today</small>
+														</li>
+
+														<li class="odd"><input name="check" type="checkbox" value="" />
+															<a href="#">To Do Will Open in Modal Box</a><br />
+															<small><strong>Deadline:</strong>Today</small>
+														</li>
+													</ul>    
+													<div class="inner-nav">
+														<div class="align-left"><a href="#"><span>view all</span></a></div>
+														<div class="align-right"><a href="#"><span>to-do config</span></a></div>
+														
+													</div>       
+												</div><!-- end of div#to-do-list -->
+											</div><!-- end of div.box-container -->
+
+											<div class="box-container" id="completed">Completed tasks div content</div>  
+										</div><!-- end of div.box -->
+									</div> <!-- end of div#left-col -->
+
+									<div id="mid-col">
+
+										<div class="box">      
+											<h4 class="white">Form Elements</h4>
+											<div class="box-container">
+												<form action="" method="post" class="middle-forms">
+													<h3>Form Title</h3>
+													<p>Please complete the form below. Mandatory fields marked <em>*</em></p>
+													<fieldset>
+														<legend>Fieldset Title</legend>
+														<ol>
+															<li class="even"><label class="field-title">Short Textbox <em>*</em>:</label> <label><input class="txtbox-short" />
+																<span class="form-confirm-inline">Confirm Message</span></label></li>
+
+																<li><label class="field-title">Radio Boxes <em>*</em>: </label> <label>
+																	<input type="radio" name="variable" checked="checked" value="val1"/>
+																	Radio1 <input type="radio" name="variable" value="val2"/>
+																	Radio2 </label></li>
+
+																	<li  class="even"><label class="field-title">Mid Textbox:</label> <label><input class="txtbox-middle" />
+																		<span class="form-error-inline">Error Message</span></label></li>
+
+																		<li><label class="field-title">Select Menu:</label> <label>
+																			<select class="form-select"><option value="option1">Menu Option 1</option><option value="option2">Menu Option 2</option></select></label></li>
+
+																			<li class="even"><label class="field-title">Long Textbox:</label> <label><input class="txtbox-long" /></label></li>
+
+																			<li><label class="field-title">Checkboxes: </label> <label>
+																				<input type="checkbox" name="check_one" value="check1" id="check_one"/>
+																				Check <input type="checkbox" name="check_two" value="check2" id="check_two"/>
+																				Check </label></li>
+
+																				<li class="even"><label class="field-title">Textarea: </label> <label>
+																					<textarea id="wysiwyg" rows="7" cols="25"></textarea></label></li>	     						
+																				</ol><!-- end of form elements -->
+																			</fieldset>
+																			<p class="align-right"><input type="image" src="images/bt-send-form.gif" /></p>
+																			
+																		</form>
+																	</div><!-- end of div.box-container -->
+																</div><!-- end of div.box -->
+
+																<div class="box">
+																	<h4 class="white">Tables <a href="2-columns.html" class="heading-link">See Full Page Tabbed Tables Example</a></h4>
+																	<div class="box-container">     		
+																		<table class="table-short">
+																			<thead>
+																				<tr>
+																					<td>Col1</td>
+																					<td>Col2</td>
+																					<td>Col3</td>
+																					<td>Col4</td>
+																				</tr>
+																			</thead>
+																			<tfoot>
+																				<tr>
+																					<td class="col-chk"><input type="checkbox" /></td>
+																					<td colspan="4"><div class="align-right"><select class="form-select"><option value="option1">Bulk Options</option>
+																						<option value="option2">Delete All</option></select>
+																						<a href="#" class="button"><span>perform action</span></a></div></td>
+																					</tr>
+																				</tfoot>
+																				<tbody>
+																					<tr class="odd">
+																						<td class="col-chk"><input type="checkbox" /></td>
+																						<td class="col-first">John Doe</td>
+																						<td class="col-second"><a href="#">johndoe@mail.com</a></td>
+																						<td class="row-nav"><a href="#" class="table-edit-link">Edit</a> <span class="hidden"> | </span> <a href="#" class="table-delete-link">Delete</a></td>
+																					</tr>
+																					<tr>
+																						<td class="col-chk"><input type="checkbox" /></td>
+																						<td class="col-first">Jane Doe</td>
+																						<td class="col-second"><a href="#">johndoe@mail.com</a></td>
+																						<td class="row-nav"><a href="#" class="table-edit-link">Edit</a> <span class="hidden"> | </span> <a href="#" class="table-delete-link">Delete</a></td>
+																					</tr>
+																					<tr class="odd">
+																						<td class="col-chk"><input type="checkbox" /></td>
+																						<td class="col-first">George Livingston</td>
+																						<td class="col-second"><a href="#">johndoe@mail.com</a></td>
+																						<td class="row-nav"><a href="#" class="table-edit-link">Edit</a> <span class="hidden"> | </span> <a href="#" class="table-delete-link">Delete</a></td>
+																					</tr>
+																					<tr>
+																						<td class="col-chk"><input type="checkbox" /></td>
+																						<td class="col-first">Lorem Ipsum Sit Amet</td>
+																						<td class="col-second"><a href="#">johndoe@mail.com</a></td>
+																						<td class="row-nav"><a href="#" class="table-edit-link">Edit</a> <span class="hidden"> | </span> <a href="#" class="table-delete-link">Delete</a></td>
+																					</tr>
+																					<tr class="odd">
+																						<td class="col-chk"><input type="checkbox" /></td>
+																						<td class="col-first">John Doe</td>
+																						<td class="col-second"><a href="#">johndoe@mail.com</a></td>
+																						<td class="row-nav"><a href="#" class="table-edit-link">Edit</a> <span class="hidden"> | </span> <a href="#" class="table-delete-link">Delete</a></td>
+																					</tr>
+																				</tbody>
+																			</table>  	
+																		</div><!-- end of div.box-container -->
+																	</div> <!-- end of div.box -->
+
+																</div><!-- end of div#mid-col -->
+
+																<div id="right-col">
+																	<div class="box">
+																		<h4 class="light-grey">Date &amp; Calendar</h4>
+																		<div class="box-container">
+																			<div id="date-container">
+																				<img src="images/sunny.png" alt="Sunny" /> <span class="hour">22:54</span> <span class="date">18th May 2009<br/>Friday</span>
+																				
+																			</div><!-- end of div#box-date -->
+
+																			<div id="calendar-container">
+																				<h5>Calendar</h5>
+																				<div id="calendar"></div>
+																				<div class="inner-nav">
+																					<div class="align-left"><a href="#"><span>+ add event</span></a></div>
+																					<div class="align-right"><a href="#"><span>? list events</span></a></div>
+																					
+																				</div> 
+																			</div><!-- end of div#calendar-container -->
+																		</div><!-- end of div.box-container -->  
+																	</div><!-- end of div.box -->  
+
+																	<div class="box">  	
+																		<h4 class="light-blue">Quick Visual Links</h4>
+																		<div class="box-container">
+																			<ul id="quick-visual-links">
+																				<li><a href="#"><img src="images/ql-settings.gif" alt="" /><br/>Settings</a></li>
+																				<li><a href="#"><img src="images/ql-users.gif" alt="" /><br/>Users</a></li>
+																				<li><a href="#"><img src="images/ql-messages.gif" alt="" /><br/>Messages</a></li>
+																				<li><a href="#"><img src="images/ql-photos.gif" alt="" /><br/>Photos</a></li>
+																				<li><a href="#"><img src="images/ql-media.gif" alt="" /><br/>Media</a></li>
+																				<li><a href="#"><img src="images/ql-design.gif" alt="" /><br/>Design</a></li>
+																				<li><a href="#"><img src="images/ql-options.gif" alt="" /><br/>Options</a></li>
+																				<li><a href="#"><img src="images/ql-databases.gif" alt="" /><br/>Databases</a></li>
+																				<li><a href="#"><img src="images/ql-paths.gif" alt="" /><br/>File Paths</a></li>   
+																			</ul>
+																			 
+																		</div><!-- end of div.box-container -->            
+																	</div><!-- end of div.box -->            
+																</div><!-- end of div#right-col -->     
+
+																     
+															</div><!-- end of div#content -->
+															<div class="push"></div>
+														</div><!-- end of #container -->
+
+														<div id="footer-wrap">
+															<div id="footer">
+																<div id="footer-top">
+																	<div class="align-left">
+																		<h4>Dashboard</h4>
+																		<p><a href="#">Dasboard Sub 1</a> | <a href="#">Dasboard Sub 2</a> | <a href="#">Dasboard Sub 3</a></p>
+																	</div>
+																	<div class="align-right">
+																		<h2><a href="#">Cleanity</a></h2>
+																	</div>
+																	<span class="clearFix"></span>
+																</div><!-- end of div#footer-top -->
+
+																<div id="footer-bottom">
+																	<p>&copy; 2009 Cleanity. Theme by Onur Oztaskiran of <a href="http://www.monofactor.com">Monofactor</a>, 
+																		via <a href="http://themeforest.net">Themeforest</a></p>
+																	</div>
+
+																</div>
+															</div>
+
+
+														</body>
+														</html>

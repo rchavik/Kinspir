@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    color: #fff;
+    text-align: center;
+}
+body {
+    background: url(../img/bg-login.jpg) repeat-x center;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, Tahoma, serif;
+    font-size: 9pt;
+}
+
+div#spacer {
+    height: 50%;
+    margin-bottom: -50px;
+}
+div#container {
+    margin: 0 auto;
+    width: 575px;
+}
+
+h1 {
+    font-size: 250%;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin: 0 0 35px 0;
+    padding: 0;
+}
+a {
+    color: #ccc;
+    text-decoration: none;
+}
+a:hover {
+	color: #fff;
+}
+
+
+/*** Forms ***/
+form {
+}
+label, input, .input, .submit {
+    display: inline;
+    margin: 0 5px;
+}
+input {
+    margin: 10px 5px;
+}
+label {
+    color: #fff;
+    font-weight: bold;
+}
+.text input, .password input {
+    width: 176px;
+    height: 21px;
+    background: url(../img/bg-loginboxes.gif) no-repeat center;
+    border: none;
+    padding: 0 5px;
+}
+.submit input {
+    background: url(../img/bg-buttons.gif) repeat-x;
+    color: #fff;
+    width: 56px;
+    height: 21px;
+	border: none;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+form a {
+    color: #ccc;
+    text-decoration: none;
+	margin: 10px 5px;
+}
+form a:hover {
+    color: #fff;
+}
+
+
+/* Errors */
+.error {
+    margin-top: -25px;
+    height: 25px;
+    text-align: center;
+    color: #ccc;
+}
+.error strong {
+    color: #f00;
+}

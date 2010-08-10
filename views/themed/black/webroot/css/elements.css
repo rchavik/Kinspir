@@ -1,0 +1,816 @@
+/*** WIDGETS ***/
+/* quick send message */
+div#quick-send-message-container form {
+    background: #f2f2f2;
+    padding: 8px;
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 5px;
+}
+div#quick-send-message-container form fieldset p {
+    margin-bottom: 6px !important;
+}
+div#quick-send-message-container form p:first-child {
+    margin-top: 0px;
+}
+div#quick-send-message-container form p label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+div#quick-send-message-container form input#message-title, div#quick-send-message-container form textarea {
+    padding: 5px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    width: 175px;
+    font-family: Helvetica, Arial, sans-serif
+}
+
+/** Widget Tabs **/
+ul.tab-menu {
+    border-bottom: 2px solid #3a4043;
+    height: 27px;
+}
+ul.tab-menu li {
+    float: left;
+    margin-right: 5px;
+}
+ul.tab-menu li.tabs-selected a {
+    background: #3a4043;
+    color: #c4a93d;
+    font-weight: bold;
+}
+ul.tab-menu li a {
+    display: inline-block;
+    background: #737d81;
+    color: #ccc;
+    font-weight: normal;
+    padding: 6px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.tabs-hide {
+    display: none;
+}
+
+/*** WIDGET LISTS ***/
+
+/* list links */
+ul.list-links, div#todo-list ul {
+    margin: 10px -10px;
+}
+ul.list-links li {
+    border-bottom: 1px dotted #d6d8d9;
+}
+ul.list-links li a {
+    padding: 8px 3px 6px 20px;
+    display: block;
+    color: #5c6467;
+    text-decoration: none;
+}
+ul.list-links li a:hover, ul.list-links li.selected a:hover {
+    background-color: #fbfbfb;
+    color: #000;
+}
+ul.list-links li ul {
+    background: #fcfbf2 !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 213px;
+    font-size: 0.9em;
+}
+ul.list-links li ul li {
+    border-bottom: none;
+}
+ul.list-links li ul li a {
+    background: none;
+    padding: 5px 3px 5px 20px !important;
+}
+ul.list-links li ul li a:hover {
+    background-color: #fcfbf2;
+    background-position: 8px 10px
+}
+ul.list-links li a.ui-state-active {
+    font-weight: bold;
+}
+
+/* system messages */
+div#sys-messages-container h5 {
+    background: url(../img/icon-messages.gif) no-repeat;
+}
+div#quick-send-message-container h5 {
+    background: url(../img/icon-quick-send-message.gif) no-repeat;
+}
+div#sys-messages-container ul {
+    margin-bottom: 20px;
+}
+div#sys-messages-container ul li {
+    font-size: 0.8em;
+    padding: 8px;
+    position: relative;
+}
+div#sys-messages-container ul li a.sysmessage-delete {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+}
+div#sys-messages-container ul li a:hover {
+    text-decoration: none;
+}
+div#sys-messages-container ul li.even-messages {
+    background: #f3f6f7;
+}
+div#sys-messages-container ul li.even-messages a {
+    color: #314d5b;
+}
+div#sys-messages-container ul li.odd-messages {
+    background: #ebf0f3;
+}
+div#sys-messages-container ul li.odd-messages a {
+    color: #1f2f35;
+}
+
+/** todos **/
+.todo-list {
+    margin-top: -10px;
+}
+.todo-list li {
+    border-bottom: 1px solid #eeeddb;
+    padding: 8px 10px;
+}
+.todo-list li.even {
+    background: #f5f4eb;
+}
+.todo-list li.odd {
+    background: #fbfbf7;
+}
+.todo-list li input {
+	width: auto;
+	display: inline;
+	margin-right: 3px;
+}
+.todo-list li a {
+    font-weight: bold;
+    color: #ae9a62;
+}
+.todo-list li a:hover {
+    color: #666;
+    text-decoration: none;
+}
+.todo-list li span {
+    display: block;
+    padding: 5px 0 0 0;
+    font-size: 0.9em;
+    color: #999;
+}
+
+
+/** Special Lists **/
+ul.order-list li strong a, ul.item-list li strong a {
+    color: #508DB8;
+}
+
+ul.order-list li, ul.item-list li {
+	background: none;
+}
+
+/** CALENDAR & DATE **/
+div.date-container {
+    background-color: #f3f6f7;
+    margin: -10px -10px 15px -10px;
+    padding: 10px;
+}
+div.date-container img {
+    float: left;
+    margin-right: 10px;
+}
+div.date-container span.hour, div.date-container span.date {
+    display: block;
+    float: left;
+}
+div.date-container span.hour {
+    font-size: 220%;
+    font-weight: bold;
+    color: #d8a416;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+div.date-container span.date {
+    color: #666;
+    font-size: 0.8em;
+    padding-top: 4px;
+}
+div#calendar-container {
+    width: 100%;
+}
+div#calendar-container h5 {
+    background-image: url(../img/icon-calendar.gif);
+    background-repeat: no-repeat;
+    display: block;
+}
+div#calendar-container div.ui-datepicker-header {
+    background: #a1b1b3;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+/*span.ui-icon {position:absolute; top:10px; cursor:pointer;}*/
+.ui-icon-circle-triangle-e {
+    right: 10px;
+}
+.ui-icon-circle-triangle-w {
+    left: 10px;
+}
+a.ui-state-highlight {
+    background: #fff;
+    color: #ac0000;
+    font-weight: bold;
+}
+a.ui-datepicker-next-hover span, a.ui-datepicker-prev-hover span {
+    color: #000 !important;
+}
+table.ui-datepicker-calendar {
+    width: 203px;
+    padding: 5px;
+    background: #f2f2f2;
+    font-size: 0.9em;
+}
+table.ui-datepicker-calendar th, table.ui-datepicker-calendar td {
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+table.ui-datepicker-calendar a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: #666;
+    padding: 3px;
+    border: 1px solid #f2f2f2;
+}
+table.ui-datepicker-calendar a:hover {
+    border: 1px solid #ccc;
+}
+table.ui-datepicker-calendar a.ui-state-active {
+    color: #ac0000 !important;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+td.ui-datepicker-week-end a {
+    color: #999;
+}
+
+/** QUICK VISUAL LINKS **/
+ul#quick-visual-links {
+    width: 100%;
+}
+ul#quick-visual-links li {
+    float: left;
+}
+ul#quick-visual-links li a {
+    width: 62px;
+    text-align: center;
+    margin: 0 3px 5px 0;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #444;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+ul#quick-visual-links li img {
+    margin-bottom: 3px;
+}
+ul#quick-visual-links li a:hover {
+    color: #000;
+    border-color: #999;
+    background: #f3f6f7
+}
+
+
+/* Action Links */
+a.edit, a.delete {
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    padding-left: 20px;
+    height: 16px;
+    text-align: right;
+}
+a.edit:hover, a.delete:hover {
+    color: #000;
+}
+a.delete {
+    margin-right: 0px !important;
+    background: url(../img/icon-delete.gif) no-repeat;
+}
+a.edit {
+    background: url(../img/icon-edit.gif) no-repeat;
+}
+
+/* Special Link Settings */
+#container a.current, #container #header a.current {
+	color: #CEAC0F;
+}
+
+/** box general settings **/
+div.actions, div.related, div.form, div.index, div.box {
+    background-color: #e8e8dd;
+    padding: 10px 10px 20px 10px;
+    margin-bottom: 15px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	overflow: auto;
+}
+
+div.actions div.form, div.related div.form, div.index div.form, div.form, div.box div.form {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+div.actions h4, div.related h4, div.form h4, div.index h4, div.box h4 {
+    text-transform: uppercase;
+    padding: 10px;
+    margin: -10px -10px 20px -10px;
+	background-color: #494D50;
+	color: #fff;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+div.box h4 div.box-actions {
+    float: right;
+}
+div.ajax {
+	margin-bottom: 20px;
+}
+div.box div.ajax {
+	margin: 20px;
+	border: 1px solid #000;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+div.actions h5, div.related h5, div.form h5, div.index h5, div.box h5 {
+    color: #333;
+    padding-left: 20px;
+    border-bottom: 1px solid #d7d9d9;
+    font-weight: bold;
+    padding-bottom: 7px;
+    margin-bottom: 1px;
+    padding-top: 1px;
+}
+
+div.actions h5 span, div.related h5 span, div.form h5 span, div.index h5 span, div.box h5 span {
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+ul.order-list {
+	margin-left: 20px;
+}
+
+h4.draggable:hover, li.draggable:hover {
+    cursor: move;
+}
+
+h4.draggable:hover {
+    background-color: #666b6f;
+}
+
+li.draggable:hover {
+    background-color: #dcdcd2;
+}
+
+.handle {
+	position: absolute;
+	margin-left: -40px;
+	width: 20px;
+	height: 20px;
+	visibility: hidden;
+	background-image: url(../img/css_move_small_up_down.gif);
+}
+
+li.draggable:hover > .handle {
+    visibility: visible;
+}
+
+div.box h4 a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+div.box h4 a:hover {
+	text-decoration: none;
+}
+
+/* Task Groups */
+.task-group-description {
+	padding: 5px 0px 10px 25px;
+}
+
+/** list links **/
+ul.taskGroup, ul.order-list, ul.item-list {
+    min-height: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.order-list .assigned-to {
+    margin-left: 24px;
+}
+
+ul.order-list li, ul.item-list li {
+    padding: 5px;
+    margin: 5px;
+}
+
+ul.order-list li strong, ul.item-list li strong {
+    margin-left: 5px;
+}
+
+ul.order-list li .item-description, ul.item-list li .item-description {
+    margin: 10px;
+    display: none;
+}
+
+div.actions ul, div.related ul, div#todo-list ul {
+    margin: -5px -10px 0 -10px;
+}
+
+div.actions ul li, div.related ul li {
+    border-bottom: 1px dotted #d6d8d9;
+}
+
+div.actions ul li a, div.related ul li a {
+    padding: 8px 3px 6px 20px;
+    display: block;
+    background: url(../img/link-arrow-regular.gif) no-repeat 10px 10px #fff;
+    color: #5c6467;
+    text-decoration: none;
+}
+
+div.actions ul li a:hover, div.actions ul li.selected a:hover, div.related ul li a:hover, div.related ul li.selected a:hover {
+    background: url(../img/link-arrow-hover.gif) no-repeat 10px 10px #fafae9;
+    color: #000;
+}
+
+div.actions ul li ul, div.related ul li ul {
+    background: #fcfbf2 !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 213px;
+    font-size: 0.9em;
+}
+
+div.actions ul li ul li, div.related ul li ul li {
+    border-bottom: none;
+}
+
+div.actions ul li ul li a, div.related ul li ul li a {
+    background: none;
+    padding: 5px 3px 5px 20px !important;
+}
+
+div.actions ul li ul li a:hover, div.related ul li ul li a:hover {
+    background-color: #fcfbf2;
+    background-position: 8px 10px
+}
+
+div.actions ul li a.ui-state-active, div.related ul li a.ui-state-active {
+    font-weight: bold;
+}
+
+/** forms **/
+form .input.select {
+	float: left;
+}
+
+#content form label.toggle {
+	padding: 10px 10px;
+	float: left;
+}
+
+input.txtbox-short {
+    width: 122px;
+}
+
+input.txtbox-middle {
+    width: 190px;
+}
+
+span.form-confirm-inline {
+    color: #72a101;
+    background: url(../img/icon-confirm.gif) no-repeat;
+}
+
+span.form-error-inline {
+    color: #a10101;
+    background: url(../img/icon-error.gif) no-repeat;
+}
+
+a.heading-link {
+    color: #cae6ed;
+    text-transform: capitalize;
+    font-size: 0.9em;
+    font-weight: normal;
+    display: inline-block;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+a.heading-link:hover {
+    color: #fff;
+}
+
+/** Paging **/
+div.paging {
+    color: #666;
+    margin-top: 1em;
+    text-align: center;
+}
+
+div.paging span.disabled {
+    color: #aaa;
+    display: inline;
+}
+
+div.paging span.current {
+    color: #c73e14;
+}
+
+div.paging span a {
+}
+
+/*** USER LISTINGS ***/
+/* Avatars */
+ul.user-avatars {
+	overflow: auto;
+}
+ul.user-avatars li {
+    width: 91px;
+    float: left;
+    padding: 5px;
+    text-align: center;
+}
+
+ul.user-avatars li a {
+    text-decoration: none;
+	text-align: center;
+}
+
+ul.user-avatars li .avatar {
+    padding: 5px;
+	display: block;
+	margin: 0 auto;
+}
+/* List */
+ul.user-list {
+}
+ul.user-list li {
+    padding: 5px;
+	overflow: auto;
+}
+
+ul.user-list li a {
+    text-decoration: none;
+}
+
+ul.user-list li img {
+    padding: 5px;
+	display: block;
+	float: left;
+}
+
+/** Scaffold View **/
+
+
+/** System Stuff **/
+/*.yellow {color:#e8e4a2;}*/
+.light-blue {
+    color: #a6b7c0;
+}
+
+/*.blue {color:#508db8 !important;}*/
+.light-grey {
+    color: #d7d7d7
+}
+
+/*.white {color:#fff;}*/
+.white {
+    background: #fefefe;
+    border: 1px solid #dbdbdb;
+}
+
+.system_title {
+    font-size: 11px;
+}
+
+.white .system_title {
+    color: #4f4f4f;
+}
+
+.red {
+    background: #e2c5c5;
+    /*border: 1px solid #cf9e9e;*/
+}
+
+.red a {
+    background-color: #e2c5c5;
+    color: #ae2727;
+}
+
+.red .system_title {
+    color: #ae2727;
+}
+
+.blue {
+    background: #c4dde3;
+    /*border: 1px solid #9cc6d0;*/
+}
+
+.blue a {
+    background-color: #c4dde3;
+    color: #0f4b74;
+}
+
+.blue .system_title {
+    color: #0f4b74;
+}
+
+.green {
+    background: #c7e5c2;
+    /*border: 1px solid #a2d399;*/
+}
+
+.green a {
+    background-color: #c7e5c2;
+    color: #386d19;
+}
+
+.green .system_title {
+    color: #386d19;
+}
+
+.yellow {
+    background: #eae1b1;
+    /*border: 1px solid #e0d182;*/
+}
+
+.yellow a {
+    background-color: #eae1b1;
+    color: #675918;
+}
+
+.yellow .system_title {
+    color: #675918;
+}
+
+#flashMessage {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.hidden-actions {
+    display: none;
+}
+
+.with-actions:hover .hidden-actions {
+    display: block;
+}
+
+.hidden-link-actions {
+	margin-right: 5px;
+	margin-left: 5px;
+	visibility: hidden;
+}
+
+.comment-icon {
+	position: absolute;
+	margin-left: -25px;
+}
+
+.with-link-actions:hover > .hidden-link-actions {
+	visibility: visible;
+}
+
+#full-calendar {
+    background: #fff;
+    padding: 10px;
+}
+
+/** Icons **/
+.icon {
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    padding-left: 16px;
+    height: 16px;
+    text-align: right;
+}
+
+.icon.complete {
+    background-image: url('../../../img/icons/silk/accept.png');
+}
+
+.icon.delete {
+    background-image: url('../../../img/icons/silk/delete.png');
+}
+
+/** Feed **/
+.feed li {
+    border-bottom: 1px solid #d4d5c3;
+	margin: 15px;
+	padding-bottom: 15px;
+	/*overflow: auto;*/
+	line-height: 17px;
+}
+.feed li .avatar {
+	float: left;
+    margin-right: 20px;
+	text-decoration: none;
+}
+.feed li a {
+    font-weight: bold;
+}
+.feed li span {
+    color: #8d9599;
+    display: block;
+}
+
+/** Inline Datepicker **/
+#datepicker .ui-datepicker {
+    width: 15em;
+}
+
+#datepicker table.ui-datepicker-calendar {
+    width: 100%
+}
+
+
+/*** AJAX CLASSES ***/
+.loading {
+	background-image: url(../../../img/spinner.gif);
+	background-position: center;
+	background-repeat: no-repeat; 
+	height: 60px;
+	border: none;
+	/* These are usually hidden by default */
+	display: none;
+}
+a.button, a.toggle-button {
+	padding: 5px 15px;
+    margin: 0 10px;
+    text-decoration: none;
+	color: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+    background: url(../img/bg-buttons.gif) repeat-x center;
+    border: 0;
+}
+a:hover.button, a:hover.toggle-button {
+	color: #ddd;
+}
+a.button span.ui-icon {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+/*** GENERAL CLASSES ***/
+.clearFix {
+    clear: both;
+}
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+.hidden {
+    display: none;
+}
+.shown {
+	display: block;
+}

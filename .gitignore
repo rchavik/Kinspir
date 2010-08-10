@@ -1,0 +1,13 @@
+*.kpf
+*.tmp*
+tmp/*
+config/database.php
+config/core.php
+config/facebook.php
+.project
+.settings
+_uploads/*
+webroot/reload.php
+todo
+.DS_Store
+content/*

@@ -1,0 +1,214 @@
+/*** GENERAL DECLARATIONS ***/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, 
+font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, 
+dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    /*font-weight: inherit;
+     font-style: inherit;
+     font-size: 100%;
+     font-family: inherit;
+     vertical-align: baseline;*/
+}
+body {
+    line-height: 1;
+    color: black;
+    font: 9pt Arial, Helvetica, Tahoma, sans-serif;
+    background: url(../img/bg-body.gif) repeat-x #c8c8bb;
+}
+body, html {
+    height: 100%
+}
+hr {
+	margin: 20px 0;
+}
+
+/*** TEXT ***/
+a {
+	text-decoration: none;
+    color: #508DB8;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/*** LISTS ***/
+ol, ul {
+    list-style: none;
+}
+.view dl {
+    line-height: 2em;
+    margin: 0em 0em;
+    width: 100%;
+}
+.view dt {
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 10px;
+}
+.view dd {
+    background: #e8e8dd;
+    padding: 10px;
+}
+
+
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
+/*** TABLES ***/
+/* tables */
+table {
+	width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+/*    margin-left: -10px;*/
+}
+table td {
+    border-top: 1px solid #dfdfdf;
+    font-size: 0.9em;
+    padding: 10px 0;
+    margin: 0;
+    color: #666;
+	text-align: center;
+}
+table th {
+    font-weight: bold;
+    padding: 10px 0;
+}
+table th, table tfoot td {
+    border: none;
+}
+table td:first-child {
+    padding: 0 0 0 10px;
+	text-align: left;
+}
+table tr {
+    background-color: #f2f2f2;
+}
+table tr.odd, table tr.altrow {
+    background-color: #fbfbfb;
+}
+td.col-chk {
+    width: 40px;
+}
+td.col-first {
+    font-weight: bold;
+    width: 200px;
+}
+table a {
+    color: #508db8;
+    font-weight: bold;
+}
+table a:hover {
+    text-decoration: none;
+    color: #333;
+}
+td.row-nav {
+    width: 110px;
+}
+
+/*** FORMS ***/
+div.form form {
+    color: #3a4043;
+    background: none;
+	overflow: auto;
+}
+
+div.form form p {
+    margin: 10px 0;
+}
+
+div.form form h3, div.form form fieldset legend {
+    display: block;
+    color: #1d8895;
+    font-weight: bold;
+    font-size: 150%;
+    margin-bottom: 10px;
+}
+
+div.form form fieldset div.input {
+    overflow: auto;
+    /*margin: 5px;*/
+    padding: 5px 10px 5px 10px;
+}
+
+input {
+    padding: 5px 0px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    width: 100%;
+}
+
+div.form form div.submit input {
+    background: url(../img/bg-buttons.gif) #c7c7bd repeat-x center;
+    border: 0;
+    margin: 10px 0px 10px 5px;
+    padding: 1px;
+    width: 75px;
+	height: 21px;
+	color: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+div.form form fieldset div input[type =
+"radio"], div.form form fieldset div input[type = "checkbox"] {
+    border: none;
+    background: none;
+}
+
+
+textarea {
+    height: 155px;
+	width: 100%;
+}
+
+input, label {
+    margin-right: 15px;
+    display: block;
+    font-size: 115%;
+}
+
+div.form form label {
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+span.form-confirm-inline, span.form-error-inline {
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 10px;
+    height: 16px;
+}
+
+
+fieldset legend {
+    display: none;
+}
+
+/* remember to define focus styles! */:focus {
+    outline: 0;
+}
+
+.checkbox {
+	overflow: auto;
+	margin: 5px;
+}
+.checkbox input {
+	float: left;
+	width: auto;
+	margin: 6px 6px 0 0;
+}
+.checkbox label {
+}

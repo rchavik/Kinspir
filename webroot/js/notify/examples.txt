@@ -1,0 +1,72 @@
+/****************JQUERY.NOTIFY EXAMPLES****************************************************************************************************
+$(function(){
+	// initialize widget on a container, passing in all the defaults.
+	// the defaults will apply to any notification created within this
+	// container, but can be overwritten on notification-by-notification
+	// basis.
+	$container = $("#notifications-container").notify();
+	
+	// create two when the pg loads
+	notify(undefined, { title:'Default Notification', text:'Example of a default notification.  I will fade out after 5 seconds'});
+	notify(undefined, { title:'Sticky Notification', text:'Example of a "sticky" notification.  Click on the X above to close me.'},{ expires:false });
+	
+	// bindings for the examples
+	$("#default").click(function(){
+		notify(undefined, { title:'Default Notification', text:'Example of a default notification.  I will fade out after 5 seconds'});
+	});
+	
+	$("#sticky").click(function(){
+		notify(undefined, { title:'Sticky Notification', text:'Example of a "sticky" notification.  Click on the X above to close me.'},{ expires:false });
+	});
+	
+	$("#warning").click(function(){
+		notify("withIcon", { title:'Warning!', text:'OMG the quick brown fox jumped over the lazy dog.  You\'ve been warned. <a href="#" class="ui-notify-close">Close me.</a>', icon:'<img src="alert.png" alt="warning">' },{ 
+			expires:false 
+		});
+	});
+	
+	$("#clickable").click(function(){
+		notify(undefined, { title:'Clickable Notification', text:'Click on me to fire a callback. Do it quick though because I will fade out after 5 seconds.'}, {
+			click: function(e,instance){
+				alert("Click triggered!\n\nTwo options are passed into the click callback: the original event obj and the instance object.");
+			}
+		});
+	});
+	
+	$("#buttons").click(function(){
+		var n = notify("buttons", { title:'Confirm some action', text:'This template has a button.' },{ 
+			expires:false
+		});
+		
+		n.widget().delegate("input","click", function(){
+			n.close();
+		});
+	});
+	
+	// second
+	var container = $("#container-bottom").notify({ stack:'above' });
+	container.notify("create", { 
+		title:'Look ma, two containers!', 
+		text:'This container is positioned on the bottom of the screen.  Notifications will stack on top of each other with the <code>position</code> attribute set to <code>above</code>.' 
+	},{ expires:false });
+	
+	container.notify("widget").find("input").bind("click", function(){
+		container.notify("create", 1, { title:'Another Notification!', text:'The quick brown fox jumped over the lazy dog.' });
+	});
+});
+
+<div id="withIcon">
+	<a class="ui-notify-close ui-notify-cross" href="#">x</a>
+	<div style="float:left;margin:0 10px 0 0">#{icon}</div>
+	<h1>#{title}</h1>
+	<p>#{text}</p>
+</div>
+
+<div id="buttons">
+	<h1>#{title}</h1>
+	<p>#{text}</p>
+	<p style="margin-top:10px;text-align:center">
+		<input type="button" class="confirm" value="Close Dialog" />
+	</p>
+</div>
+****************END JQUERY.NOTIFY EXAMPLES****************************************************************************************************/

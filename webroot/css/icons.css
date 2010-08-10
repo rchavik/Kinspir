@@ -1,0 +1,84 @@
+/* Fatcow Icons */
+.ico-calendar, .ico-calendar-view-month, .ico-calendar-view-day, .ico-date,
+.ico-email, .ico-folder-page, .ico-house, .ico-tick, .ico-key, .ico-bricks,
+.ico-user-suit, .ico-error, .ico-newspaper, .ico-exclamation, .ico-package,
+.ico-group, .ico-layers, .ico-book-open, .ico-table-multiple {
+	min-height: 32px;
+	padding-left: 40px;
+}
+
+.ico-calendar {
+	background: url(../img/icons/fatcow/32x32/calendar.png) no-repeat;
+}
+
+.ico-calendar-view-month {
+	background: url(../img/icons/fatcow/32x32/calendar_view_month.png) no-repeat;
+}
+
+.ico-calendar-view-day {
+	background: url(../img/icons/fatcow/32x32/calendar_view_day.png) no-repeat;
+}
+
+.ico-date {
+	background: url(../img/icons/fatcow/32x32/date.png) no-repeat;
+}
+
+.ico-email {
+	background: url(../img/icons/fatcow/32x32/email.png) no-repeat;
+}
+
+.ico-folder-page {
+	background: url(../img/icons/fatcow/32x32/folder_page.png) no-repeat;
+}
+
+.ico-house {
+	background: url(../img/icons/fatcow/32x32/house.png) no-repeat;
+}
+
+.ico-tick {
+	background: url(../img/icons/fatcow/32x32/tick.png) no-repeat;
+}
+
+.ico-key {
+	background: url(../img/icons/fatcow/32x32/key.png) no-repeat;
+}
+
+.ico-bricks {
+	background: url(../img/icons/fatcow/32x32/bricks.png) no-repeat;
+}
+
+.ico-user-suit {
+	background: url(../img/icons/fatcow/32x32/user_suit.png) no-repeat;
+}
+
+.ico-error {
+	background: url(../img/icons/fatcow/32x32/error.png) no-repeat;
+}
+
+.ico-newspaper {
+	background: url(../img/icons/fatcow/32x32/newspaper.png) no-repeat;
+}
+
+.ico-exclamation {
+	background: url(../img/icons/fatcow/32x32/exclamation.png) no-repeat;
+}
+
+.ico-package {
+	background: url(../img/icons/fatcow/32x32/package.png) no-repeat;
+}
+
+.ico-group {
+	background: url(../img/icons/fatcow/32x32/group.png) no-repeat;
+}
+
+.ico-layers {
+	background: url(../img/icons/fatcow/32x32/layers.png) no-repeat;
+}
+
+.ico-book-open {
+	background: url(../img/icons/fatcow/32x32/book_open.png) no-repeat;
+}
+
+.ico-table-multiple {
+	background: url(../img/icons/fatcow/32x32/table_multiple.png) no-repeat;
+}
